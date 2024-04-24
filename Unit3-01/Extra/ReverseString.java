@@ -29,11 +29,29 @@ final class ReverseString {
     * @param args No args will be used
     */
     public static void main(final String[] args) {
+        final String og = "original string: ";
+        final String reversed = "reversed string: ";
         // input
         String original_string = "recursion";
-        System.out.println("original string: " + original_string);
-        String reversed_string = reverse_string(original_string);
-        System.out.println("reversed string: " + reversed_string);
+        System.out.println(og + original_string);
+        System.out.println(
+            reversed + reverseString(original_string)
+        );
+        System.out.println();
+
+        original_string = "";
+        System.out.println(og + original_string);
+        System.out.println(
+            reversed + reverseString(original_string)
+        );
+        System.out.println();
+
+        original_string = "Room212";
+        System.out.println(og + original_string);
+        System.out.println(
+            reversed + reverseString(original_string)
+        );
+        System.out.println();
 
         System.out.println("\nDone.");
     }
@@ -41,10 +59,13 @@ final class ReverseString {
     /**
     * The reverse string() function.
     *
-    * @param input_string string that is inputted
+    * @param input string that is inputted
+    *
+    * @return reversed string
     */
-    public static String reverse_string(String input_string) {
-        if (input_string != "") {
+    public static String reverseString(String input) {
+        String input_string = input;
+        if (input_string.length() > 0) {
             final char myChar = input_string.charAt(0);
             input_string = input_string.substring(1, input_string.length());
             input_string = reverse_string(input_string);

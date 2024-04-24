@@ -17,8 +17,19 @@ function reverse_string(input_string: string): string {
   return input_string
 }
 
-const original_string = "recursion"
+let original_string = "recursion"
 console.log("original string: " + original_string)
 console.log("reversed string: " + reverse_string(original_string))
+console.log()
+
+original_string = ""
+console.log("original string: " + original_string)
+console.log("reversed string: " + reverse_string(original_string))
+console.log()
+
+original_string = "Room212"
+console.log("original string: " + original_string)
+console.log("reversed string: " + reverse_string(original_string))
+console.log()
 
 console.log("\nDone.")
