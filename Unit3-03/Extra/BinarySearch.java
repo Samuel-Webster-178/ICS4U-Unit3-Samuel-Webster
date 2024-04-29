@@ -35,11 +35,11 @@ final class BinarySearch {
   /**
    * Function finds the index of a number, using Binary Search recursively.
    *
-   * @param userArray
-   * @param userNumber
-   * @param lowIndex
-   * @param highIndex
-   * @return binarySearch
+   * @param userArray random array
+   * @param userNumber inputted value
+   * @param lowIndex first pointer
+   * @param highIndex second pointer
+   * @return index of input
    */
   static int binarySearch(final int[] userArray, final int userNumber,
       final int lowIndex, final int highIndex) {
