@@ -30,7 +30,7 @@ final class BinarySearch {
   /**
    * The number of elements in the array.
    */
-  public static final int ARRAY_SIZE = 250;
+  public static final int ARRAY_SIZE = 50;
 
   /**
    * Function finds the index of a number, using Binary Search recursively.
