@@ -8,47 +8,34 @@
 
 import { createPrompt } from 'bun-promptx'
 
-const MIN = 0
-const MAX = 999
-const ARRAY_SIZE = 50
-
-function binarySearch(userArray: number[], userNumber: number,
-  lowIndex: number, highIndex: number) {
-  let rVal: number = -1
-  if (lowIndex <= highIndex) {
-    let midIndex: number = Math.floor((lowIndex + highIndex) / 2)
-    if (userArray[midIndex] == userNumber) {
-      rVal = midIndex
-    } else if (userArray[midIndex] > userNumber) {
-      rVal = binarySearch(userArray, userNumber, lowIndex, midIndex - 1)
-    } else {
-      rVal = binarySearch(userArray, userNumber, midIndex + 1, highIndex)
-    }
+/**
+ * Calculates where disks should be placed.
+ *
+ * @param numberOfDisks the number of disks
+ * @param startPeg the starting number of pegs
+ * @param endPeg the ending number of pegs
+ */
+function hanoi(numberOfDisks: number, startPeg: number, endPeg: number) {
+  if (numberOfDisks == 1) {
+    console.log(`Move disk ${numberOfDisks} from peg ${startPeg} to ${endPeg}`)
+  } else {
+    hanoi(numberOfDisks - 1, startPeg, 6 - startPeg - endPeg)
+    console.log(`Move disk ${numberOfDisks} from peg ${startPeg} to ${endPeg}`)
+    hanoi(numberOfDisks -1, 6 - startPeg - endPeg, endPeg)
   }
-  return rVal
 }
 
-let numberArray: number[] = []
+// Peg constants
+const startPeg: number = 1
+const endPeg: number = 3
 
-for (let i = 0; i < ARRAY_SIZE; i++) {
-  numberArray[i] = Math.floor(Math.random() * (MAX + 1))
+// User input
+const input: number = createPrompt('Enter number of disks: ').value
+
+if (isNaN(input) || input < 1) {
+  console.log('Not a valid number.')
+} else {
+  hanoi(input, startPeg, endPeg)
 }
 
-numberArray = numberArray.sort((a, b) => a - b)
-
-console.log("\nSorted list of numbers:\n")
-console.log(numberArray)
-
-try {
-  const userInput = createPrompt(
-    `What number are you searching for in the array? (integer between 0 and 999): `
-  )
-  let inputInt = parseInt(userInput.value)
-  if (inputInt > MAX || inputInt < MIN) {
-    throw Error()
-  }
-  console.log(`Returned = ${binarySearch(numberArray, inputInt, 0, numberArray.length - 1)}`)
-} catch {
-  console.log(`Invalid input.`)
-}
-console.log(`\nDone.`)
+console.log('\nDone.')
