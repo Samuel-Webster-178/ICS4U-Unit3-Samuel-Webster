@@ -26,12 +26,12 @@ final class TowerOfHanoi {
             System.out.println("Move disk 1 from peg " + startPeg + " to peg "
                                + endPeg);
         } else {
-            hanoi(numberOfDisks - 1, startPeg, numberPegs - startPeg - endPeg);
+            hanoi(nOfDisks - 1, startPeg, pegNumber - startPeg - endPeg);
             System.out.println(
-                "Move disk " + numberOfDisks + " from peg "
-                + startPeg + toString + endPeg
+                "Move disk " + nOfDisks + " from peg "
+                + startPeg + " to " + endPeg
             );
-            hanoi(numberOfDisks - 1, numberPegs - startPeg - endPeg, endPeg);
+            hanoi(nOfDisks - 1, pegNumber - startPeg - endPeg, endPeg);
         }
     }
 
