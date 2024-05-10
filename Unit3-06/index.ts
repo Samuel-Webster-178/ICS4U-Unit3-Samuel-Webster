@@ -46,13 +46,13 @@ function mergeSort(sortArray: number[]): number[] {
 }
 
 // Create array
-const arrayLength = 10
+const arrayLength = 5
 let counter = 0
 let array: number[] = []
 while (counter < arrayLength) {
-  const selectedNumber: number = parseInt(createPrompt(`Enter a number to put in index ${counter}: `).value)
+  const selectedNumber: number = parseInt(createPrompt(`Enter a number to put at [${counter}]: `).value)
   if (isNaN(selectedNumber)) {
-    console.log("Not a valid number.")
+    console.log("Invalid input.")
   } else {
     array.push(selectedNumber)
     counter++
