@@ -8,6 +8,7 @@
 */
 
 import java.util.Arrays;
+import java.util.Scanner;
 
 /**
 * This is the program.
@@ -141,14 +142,20 @@ final class MergeSort {
     */
     public static void main(final String[] args) {
         // Array constants
-        final int[] array = {-1, 4, 10, 5, 18, 225, 900, -80, -6, -9};
-        final int[] sortedArray = mergeSort(array);
-
-        // Show unsorted array
+        int[] array = {5, 4, 3, 2, 1};
+        int[] sortedArray = mergeSort(array);
         System.out.println("Unsorted array: " + formatArray(array) + "\n");
-
-        // Show sorted array
         System.out.println("Sorted array: " + formatArray(sortedArray));
+
+        int[] array2 = {-1};
+        int[] sortedArray2 = mergeSort(array2);
+        System.out.println("Unsorted array: " + formatArray(array2) + "\n");
+        System.out.println("Sorted array: " + formatArray(sortedArray2));
+
+        int[] array3 = {-1, 0, 1, 2, -2};
+        int[] sortedArray3 = mergeSort(array3);
+        System.out.println("Unsorted array: " + formatArray(array3) + "\n");
+        System.out.println("Sorted array: " + formatArray(sortedArray3));
 
         // Show the program as done
         System.out.println("\nDone.");
